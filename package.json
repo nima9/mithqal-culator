@@ -10,6 +10,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.2.6"
+    "@astrojs/alpinejs": "^0.4.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "@types/alpinejs": "^3.13.6",
+    "alpinejs": "^3.13.5",
+    "astro": "^4.2.6",
+    "htmx.org": "^1.9.10",
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.4",
+    "prettier-plugin-tailwindcss": "^0.5.11"
   }
 }
