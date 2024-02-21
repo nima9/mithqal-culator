@@ -2,11 +2,9 @@
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {
-			fontFamily: {
-				karla: ['Karla Variable', 'sans-serif']
-			}
-		}
+		fontFamily: {
+			karla: ["Karla", "sans-serif"],
+		},
 	},
-	plugins: []
+	plugins: [],
 }
