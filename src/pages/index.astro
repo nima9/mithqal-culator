@@ -1,13 +1,14 @@
 ---
 import '../base.css'
 import Header from '../components/Header.astro'
+import Calculator from '../components/Calculator.astro'
 import metals from '../api/metals.json'
 //https://metals.dev
 ---
 
 <html lang="en">
 	<Header />
-	<body>
-		<h1>{metals.metals.gold}</h1>
+	<body class="bg-zinc-800">
+		<Calculator />
 	</body>
 </html>
