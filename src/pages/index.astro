@@ -1,11 +1,13 @@
 ---
 import '../base.css'
 import Header from '../components/Header.astro'
+import metals from '../api/metals.json'
+//https://metals.dev
 ---
 
 <html lang="en">
 	<Header />
 	<body>
-		<h1>Test</h1>
+		<h1>{metals.metals.gold}</h1>
 	</body>
 </html>
