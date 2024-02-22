@@ -1,8 +1,6 @@
 <script>
-	import HeadTags from '../components/HeadTags.astro'
 </script>
 
-<HeadTags />
 <nav class="z-50 flex flex-wrap items-center justify-between bg-zinc-800 p-4">
 	<a href="/" class="font-karla text-4xl font-medium text-green-50 sm:text-5xl md:text-6xl">
 		<span class="link-underline link-underline-green">Mithqal-Culator</span>
