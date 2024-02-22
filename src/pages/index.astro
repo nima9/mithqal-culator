@@ -1,14 +1,13 @@
 ---
 import '../base.css'
-import Header from '../components/Header.astro'
-import Calculator from '../components/Calculator.astro'
-import metals from '../api/metals.json'
+import Header from '../components/Header.svelte'
+import Calculator from '../components/Calculator.svelte'
 //https://metals.dev
 ---
 
 <html lang="en">
-	<Header />
+	<Header client:load />
 	<body class="bg-zinc-800">
-		<Calculator />
+		<Calculator client:load />
 	</body>
 </html>
