@@ -1,36 +1,67 @@
 <script>
 	import metals from '../api/metals.json'
+	let amount = '19'
+
+	function handleAmountInputNumbers(event) {
+		const value = event.target.value
+		const validValue = value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')
+		if (value !== validValue) {
+			amount = validValue
+		}
+	}
 </script>
 
-<div
-	class="flex-warp flex items-center justify-center pt-36 text-2xl font-medium text-black sm:text-3xl md:text-4xl"
+<form
+	class="flex-warp flex items-center justify-center pt-36 text-5xl text-green-50 font-medium sm:text-6xl md:text-7xl"
 >
 	<input
 		autocomplete="off"
-		type="number"
-		class="text-l block w-1/12 rounded-lg border-4 p-2.5 text-gray-900 focus:border-green-500 focus:ring-green-500 dark:border-transparent dark:bg-zinc-700 dark:text-green-50 dark:outline-none dark:outline-offset-1 dark:focus:border-green-800"
+		type="text"
+		bind:value={amount}
+		on:input={handleAmountInputNumbers}
+		class="appearance-none flex w-28 text-center border-b-4 pt-1 text-gray-900 focus:border-green-500 focus:ring-green-500 dark:bg-zinc-800 dark:text-green-50 dark:outline-none dark:outline-offset-1 dark:border-green-800"
 		id="amount"
 		name="amount"
-		min="0"
-		value="19"
+		on:input={(e) => (e.target.style.width = e.target.value.length + 1 + 'ch')}
 	/>
-	<div class="px-3 text-2xl font-medium text-green-50 sm:text-3xl md:text-4xl">of 'GOLD' in</div>
+	<label for="metals" class="px-3 font-medium text-green-50">Mithqál of </label>
 	<input
 		autocomplete="off"
 		aria-autocomplete="none"
-		class="text-l block w-1/12 rounded-lg border-4 p-2.5 text-gray-900 focus:border-green-500 focus:ring-green-500 dark:border-transparent dark:bg-zinc-700 dark:text-green-50 dark:outline-none dark:outline-offset-1 dark:focus:border-green-800"
+		class="appearance-none w-52 text-center border-b-4 pt-1 mx-4 text-gray-900 focus:border-green-500 focus:ring-green-500 dark:bg-zinc-800 dark:text-green-50 dark:outline-none dark:outline-offset-1 dark:border-green-800"
+		list="metals"
+		required
+		value="Gold"
+		on:input={(e) => (e.target.style.width = e.target.value.length + 1 + 'ch')}
+	/>
+	<datalist id="metals">
+		<option class="text-l" value="Gold"> </option>
+		<option class="text-l" value="Silver"> </option>
+	</datalist>
+	in
+	<input
+		autocomplete="off"
+		aria-autocomplete="none"
+		class="appearance-none w-72 border-b-4 pt-1 mx-4 text-center text-gray-900 focus:border-green-500 focus:ring-green-500 dark:bg-zinc-800 dark:text-green-50 dark:outline-none dark:outline-offset-1 dark:border-green-800"
 		list="curr"
 		required
-		value="USD $"
+		value="$ USD"
+		on:input={(e) => (e.target.style.width = e.target.value.length + 1 + 'ch')}
 	/>
 	<datalist id="curr">
 		<option class="text-l" value="$ USD"> </option>
 		<option class="text-l" value="$ CAD"> </option>
 		<option class="text-l" value="¥ YEN "> </option>
 	</datalist>
-	<div class="px-3 text-2xl font-medium text-white sm:text-3xl md:text-4xl">is:</div>
-</div>
+	is:
+</form>
 <br />
-<div class="flex items-center justify-center pt-36 text-6xl text-green-50 sm:text-7xl md:text-8xl">
+<div class="flex items-center justify-center pt-36 text-5xl text-green-50 sm:text-7xl md:text-9xl">
 	{metals.metals.gold}
+	{#if amount !== null}
+		{amount}
+	{/if}
 </div>
+
+<style>
+</style>
