@@ -1,6 +1,7 @@
 <script>
 	import metals from '../api/metals.json'
 	import currencies from '../api/currencies.json'
+	const mithqalWeight = 1.05374
 	let amount = '19'
 	let metal = 'Gold'
 	let currency = '$ USD'
@@ -20,7 +21,7 @@
 		const lastLetters = currency.slice(-3)
 		const metalValue = metals.metals[metal.toLowerCase().trim()]
 		const currencyValue = metals.currencies[lastLetters.toUpperCase().trim()]
-		const calculation = amount * metalValue * currencyValue
+		const calculation = mithqalWeight * amount * metalValue * currencyValue
 		answer = calculation
 			.toFixed(2)
 			.toString()
