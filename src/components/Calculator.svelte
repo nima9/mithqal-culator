@@ -1,7 +1,7 @@
 <script>
 	import metals from '../api/metals.json'
 	import currencies from '../api/currencies.json'
-	const mithqalWeight = 1.05374
+	const mithqalWeight = 0.1170822 //1 mithqal in troy ounces
 	let amount = '19'
 	let metal = 'Gold'
 	let currency = '$ USD'
