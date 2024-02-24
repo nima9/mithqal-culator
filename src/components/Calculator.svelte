@@ -5,6 +5,8 @@
 	let metal = 'Gold'
 	let currency = '$ USD'
 	let answer = 0
+	let metalDate = new Date(metals.timestamps.metal.toString())
+	let currDate = new Date(metals.timestamps.currency.toString())
 
 	function handleAmountInputNumbers(event) {
 		const value = event.target.value
@@ -24,6 +26,21 @@
 			.toString()
 			.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 	}
+
+	const dateOptions = {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+		hour: 'numeric',
+		minute: 'numeric',
+		second: 'numeric',
+		timeZone: 'America/Los_Angeles',
+		timeZoneName: 'short',
+	}
+	doMath()
+
+	const readableMetalDate = new Intl.DateTimeFormat('en-US', dateOptions).format(metalDate)
+	const readableCurrDate = new Intl.DateTimeFormat('en-US', dateOptions).format(currDate)
 </script>
 
 <form
@@ -83,6 +100,10 @@
 		{answer}
 	{/if}
 </div>
-
-<style>
-</style>
+<br />
+<div class="flex items-center justify-end text-gray-500 mr-96">
+	Metal values as of: {readableMetalDate}
+</div>
+<div class="flex items-center justify-end text-gray-500 mr-96">
+	Currency values as of: {readableCurrDate}
+</div>

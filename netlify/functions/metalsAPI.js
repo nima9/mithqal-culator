@@ -9,9 +9,9 @@ async function fetchMetalRates() {
 	})
 
 	const result = await response.json()
-	const path = Bun.file('./metals.json')
+	const path = Bun.file('src/api/metals.json')
 	Bun.write(path, JSON.stringify(result))
 }
 
 console.log(url)
-//fetchMetalRates()
+fetchMetalRates()

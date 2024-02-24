@@ -1,2 +1,3 @@
-const path = Bun.file('./test.json')
+/* const path = Bun.file('./test.json')
 await Bun.write(path, 'yeet')
+ */

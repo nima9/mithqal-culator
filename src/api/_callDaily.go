@@ -1,4 +1,4 @@
-package main
+/* package main
 
 import (
 	"fmt"
@@ -27,3 +27,4 @@ func main() {
 	// Wait for the Cron job to run
 	select {} //never stop waiting
 }
+*/
