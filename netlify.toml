@@ -1,2 +1,2 @@
-[functions."callDaily"]
+[functions."metalsAPI"]
 schedule = "* * * * *"
