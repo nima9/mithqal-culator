@@ -130,9 +130,9 @@
 		{displayAnswer}
 	</button>
 </div>
-<br />
+
 <div
-	class="flex flex-wrap items-center justify-end px-7 py-1 text-gray-500 sm:mr-48 md:mr-24 lg:mr-12"
+	class="flex flex-wrap items-center justify-end px-7 pb-1 pt-24 text-gray-500 sm:mr-48 md:mr-24 lg:mr-12"
 >
 	Metal values as of: {readableMetalDate}
 </div>
