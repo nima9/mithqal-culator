@@ -44,67 +44,72 @@
 	const readableCurrDate = new Intl.DateTimeFormat('en-US', dateOptions).format(currDate)
 </script>
 
-<form
-	class="flex-warp flex items-center justify-center pt-36 text-5xl text-green-50 font-medium sm:text-6xl md:text-7xl"
+<div
+	class="container mx-auto flex flex-wrap items-center justify-center space-x-0 pl-6 pt-36 text-3xl font-medium text-green-50 md:container sm:text-4xl md:mx-auto md:text-5xl lg:text-6xl"
 >
-	<input
-		autocomplete="off"
-		type="text"
-		bind:value={amount}
-		on:input={handleAmountInputNumbers}
-		on:input={doMath}
-		class="appearance-none flex w-28 text-center border-b-4 pt-1 text-gray-900 focus:border-green-500 focus:ring-green-500 dark:bg-zinc-800 dark:text-green-50 dark:outline-none dark:outline-offset-1 dark:border-green-800"
-		id="amount"
-		name="amount"
-		on:input={(e) => (e.target.style.width = e.target.value.length + 1 + 'ch')}
-	/>
-	<label for="metals" class="px-3 font-medium text-green-50">Mithqál of </label>
-	<input
-		autocomplete="off"
-		aria-autocomplete="none"
-		class="appearance-none w-52 text-center border-b-4 pt-1 mx-4 text-gray-900 focus:border-green-500 focus:ring-green-500 dark:bg-zinc-800 dark:text-green-50 dark:outline-none dark:outline-offset-1 dark:border-green-800"
-		list="metals"
-		required
-		bind:value={metal}
-		on:input={doMath}
-		on:input={(e) =>
-			(e.target.style.width =
-				e.target.value.length + 1 < 5 ? '5ch' : e.target.value.length + 1 + 'ch')}
-	/>
-	<datalist id="metals">
-		<option class="text-l" value="Gold"> </option>
-		<option class="text-l" value="Silver"> </option>
-	</datalist>
-	in
-	<input
-		autocomplete="off"
-		aria-autocomplete="none"
-		class="appearance-none w-72 border-b-4 pt-1 mx-4 text-center text-gray-900 focus:border-green-500 focus:ring-green-500 dark:bg-zinc-800 dark:text-green-50 dark:outline-none dark:outline-offset-1 dark:border-green-800"
-		list="curr"
-		required
-		bind:value={currency}
-		on:input={doMath}
-		on:input={(e) =>
-			(e.target.style.width =
-				e.target.value.length + 1 < 5 ? '5ch' : e.target.value.length + 1 + 'ch')}
-	/>
-	<datalist id="curr">
-		{#each Object.values(currencies) as c}
-			<option class="text-l" value="{c.symbol_native} {c.code}"> </option>
-		{/each}
-	</datalist>
-	is:
-</form>
+	<form>
+		<input
+			autocomplete="off"
+			type="text"
+			bind:value={amount}
+			on:input={handleAmountInputNumbers}
+			on:input={doMath}
+			class="inline-block w-9 appearance-none flex-wrap border-b-4 pt-1 text-center text-gray-900 focus:border-green-500 focus:ring-green-500 sm:w-14 md:w-20 lg:w-28 dark:border-green-800 dark:bg-zinc-800 dark:text-green-50 dark:outline-none dark:outline-offset-1"
+			id="amount"
+			name="amount"
+			on:input={(e) => (e.target.style.width = e.target.value.length + 1 + 'ch')}
+		/>
+		<label for="metals" class="flex-warp px-3 font-medium text-green-50">Mithqál of </label>
+		<input
+			autocomplete="off"
+			aria-autocomplete="none"
+			class="w-20 appearance-none border-b-4 pt-1 text-center text-gray-900 focus:border-green-500 focus:ring-green-500 sm:w-24 md:w-32 lg:w-36 dark:border-green-800 dark:bg-zinc-800 dark:text-green-50 dark:outline-none dark:outline-offset-1"
+			list="metals"
+			required
+			bind:value={metal}
+			on:input={doMath}
+			on:input={(e) =>
+				(e.target.style.width =
+					e.target.value.length + 1 < 1 ? '1ch' : e.target.value.length + 1 + '1ch')}
+		/>
+		<datalist id="metals">
+			<option class="text-l" value="Gold"> </option>
+			<option class="text-l" value="Silver"> </option>
+		</datalist>
+		in
+		<input
+			autocomplete="off"
+			aria-autocomplete="none"
+			class="w-28 appearance-none border-b-4 pt-1 text-center text-gray-900 focus:border-green-500 focus:ring-green-500 sm:w-32 md:w-40 lg:w-48 dark:border-green-800 dark:bg-zinc-800 dark:text-green-50 dark:outline-none dark:outline-offset-1"
+			list="curr"
+			required
+			bind:value={currency}
+			on:input={doMath}
+			on:input={(e) =>
+				(e.target.style.width =
+					e.target.value.length + 1 < 1 ? '1ch' : e.target.value.length + 1 + 'ch')}
+		/>
+		<datalist id="curr">
+			{#each Object.values(currencies) as c}
+				<option class="text-l" value="{c.symbol_native} {c.code}"> </option>
+			{/each}
+		</datalist>
+		is:
+	</form>
+</div>
+
 <br />
-<div class="flex items-center justify-center pt-36 text-5xl text-green-300 sm:text-7xl md:text-9xl">
+<div
+	class="flex flex-wrap items-center justify-center pt-36 text-5xl text-green-300 sm:text-6xl md:text-7xl lg:text-9xl"
+>
 	{#if answer !== null}
 		{answer}
 	{/if}
 </div>
 <br />
-<div class="flex items-center justify-end text-gray-500 mr-96">
+<div class="flex flex-wrap items-center justify-end px-7 text-gray-500 sm:mr-48 md:mr-24 lg:mr-12">
 	Metal values as of: {readableMetalDate}
 </div>
-<div class="flex items-center justify-end text-gray-500 mr-96">
+<div class="flex flex-wrap items-center justify-end px-7 text-gray-500 sm:mr-48 md:mr-24 lg:mr-12">
 	Currency values as of: {readableCurrDate}
 </div>
