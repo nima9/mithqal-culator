@@ -21,7 +21,7 @@
 		const lastLetters = currency.slice(-3)
 		const metalValue = metals.metals[metal.toLowerCase().trim()]
 		const currencyValue = metals.currencies[lastLetters.toUpperCase().trim()]
-		const calculation = mithqalWeight * amount * metalValue * currencyValue
+		const calculation = mithqalWeight * amount * (metalValue / currencyValue)
 		answer = calculation
 			.toFixed(2)
 			.toString()
