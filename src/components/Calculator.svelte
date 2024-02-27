@@ -50,7 +50,7 @@
 </script>
 
 <div
-	class="container mx-auto flex flex-wrap items-center justify-center space-x-0 px-6 pt-36 text-3xl font-medium text-green-50 md:container sm:text-4xl md:mx-auto md:text-5xl lg:text-6xl"
+	class="container mx-auto flex appearance-none flex-wrap items-center justify-center space-x-0 px-6 pt-36 text-3xl font-medium text-green-50 md:container sm:text-4xl md:mx-auto md:text-5xl lg:text-6xl"
 >
 	<form>
 		<input
@@ -110,7 +110,7 @@
 
 <br />
 <div
-	class="  flex flex-wrap items-center justify-center pb-9 pt-16 text-6xl text-green-300 sm:text-7xl md:text-8xl lg:text-9xl"
+	class="flex flex-wrap items-center justify-center pb-9 pt-16 text-6xl text-green-300 sm:text-7xl md:text-8xl lg:text-9xl"
 >
 	<button
 		class="btn-ghost tooltip tooltip-bottom hover:bg-transparent"
