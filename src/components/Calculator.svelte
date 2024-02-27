@@ -6,6 +6,7 @@
 	let metal = 'Gold'
 	let currency = '$ USD'
 	let answer = 0
+	let displayAnswer = ''
 	let metalDate = new Date(metals.timestamps.metal.toString())
 	let currDate = new Date(metals.timestamps.currency.toString())
 
@@ -18,14 +19,17 @@
 	}
 
 	function doMath() {
-		const lastLetters = currency.slice(-3)
+		const ISOLetters = currency.slice(-3).toUpperCase().trim()
+		const symbol = currencies[ISOLetters].symbol_native
 		const metalValue = metals.metals[metal.toLowerCase().trim()]
-		const currencyValue = metals.currencies[lastLetters.toUpperCase().trim()]
+		const currencyValue = metals.currencies[ISOLetters]
 		const calculation = mithqalWeight * amount * (metalValue / currencyValue)
 		answer = calculation
 			.toFixed(2)
 			.toString()
 			.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+
+		displayAnswer = isNaN(calculation) ? '' : symbol + ' ' + answer
 	}
 
 	const dateOptions = {
@@ -45,7 +49,7 @@
 </script>
 
 <div
-	class="container mx-auto flex flex-wrap items-center justify-center space-x-0 pl-6 pt-36 text-3xl font-medium text-green-50 md:container sm:text-4xl md:mx-auto md:text-5xl lg:text-6xl"
+	class="container mx-auto flex flex-wrap items-center justify-center space-x-0 px-6 pt-36 text-3xl font-medium text-green-50 md:container sm:text-4xl md:mx-auto md:text-5xl lg:text-6xl"
 >
 	<form>
 		<input
@@ -100,16 +104,18 @@
 
 <br />
 <div
-	class="flex flex-wrap items-center justify-center pt-36 text-5xl text-green-300 sm:text-6xl md:text-7xl lg:text-9xl"
+	class="flex flex-wrap items-center justify-center pb-9 pt-16 text-6xl text-green-300 sm:text-7xl md:text-8xl lg:text-9xl"
 >
-	{#if answer !== null}
-		{answer}
-	{/if}
+	{displayAnswer}
 </div>
 <br />
-<div class="flex flex-wrap items-center justify-end px-7 text-gray-500 sm:mr-48 md:mr-24 lg:mr-12">
+<div
+	class="flex flex-wrap items-center justify-end px-7 py-1 text-gray-500 sm:mr-48 md:mr-24 lg:mr-12"
+>
 	Metal values as of: {readableMetalDate}
 </div>
-<div class="flex flex-wrap items-center justify-end px-7 text-gray-500 sm:mr-48 md:mr-24 lg:mr-12">
+<div
+	class="flex flex-wrap items-center justify-end px-7 py-1 text-gray-500 sm:mr-48 md:mr-24 lg:mr-12"
+>
 	Currency values as of: {readableCurrDate}
 </div>
