@@ -1,4 +1,4 @@
-const APIKEY = import.meta.env.METALDEV_API
+const APIKEY = import.meta.env.METALDEV_API.toString()
 const url = 'https://api.metals.dev/v1/latest?api_key=' + APIKEY + '&currency=USD&unit=toz'
 
 async function fetchMetalRates() {
