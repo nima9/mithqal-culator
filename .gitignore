@@ -23,3 +23,6 @@ pnpm-debug.log*
 
 # Local Netlify folder
 .netlify
+# ignore files in src folder starting with _
+src/unused/**
+src/unused
