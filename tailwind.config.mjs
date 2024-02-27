@@ -6,5 +6,8 @@ export default {
 			karla: ['Karla', 'sans-serif'],
 		},
 	},
-	plugins: [],
+	plugins: [require('daisyui')],
+	daisyui: {
+		themes: ['forest'],
+	},
 }

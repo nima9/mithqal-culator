@@ -1,7 +1,7 @@
 <script>
 	import metals from '../api/metals.json'
 	import currencies from '../api/currencies.json'
-	const mithqalWeight = 0.1170822 //1 mithqal in troy ounces
+	const mithqalWeight = 0.11708222222 //1 mithqal in troy ounces
 	let amount = '19'
 	let metal = 'Gold'
 	let currency = '$ USD'
@@ -9,6 +9,7 @@
 	let displayAnswer = ''
 	let metalDate = new Date(metals.timestamps.metal.toString())
 	let currDate = new Date(metals.timestamps.currency.toString())
+	$: answerDataTip = 'Click to copy'
 
 	function handleAmountInputNumbers(event) {
 		const value = event.target.value
@@ -63,7 +64,12 @@
 			name="amount"
 			on:input={(e) => (e.target.style.width = e.target.value.length + 1 + 'ch')}
 		/>
-		<label for="metals" class="flex-warp px-3 font-medium text-green-50">Mithqál of </label>
+		<label
+			for="metals"
+			class="tooltip flex-warp px-3 font-medium text-green-50"
+			data-tip="1 Mithqál = 3.642g"
+			>Mithqál of
+		</label>
 		<input
 			autocomplete="off"
 			aria-autocomplete="none"
@@ -104,9 +110,25 @@
 
 <br />
 <div
-	class="flex flex-wrap items-center justify-center pb-9 pt-16 text-6xl text-green-300 sm:text-7xl md:text-8xl lg:text-9xl"
+	class="  flex flex-wrap items-center justify-center pb-9 pt-16 text-6xl text-green-300 sm:text-7xl md:text-8xl lg:text-9xl"
 >
-	{displayAnswer}
+	<button
+		class="btn-ghost tooltip tooltip-bottom hover:bg-transparent"
+		data-tip={answerDataTip}
+		on:click={() => {
+			navigator.clipboard.writeText(answer)
+		}}
+		on:click={() => {
+			answerDataTip = 'Copied!'
+		}}
+		on:mouseleave={() => {
+			setTimeout(() => {
+				answerDataTip = 'Click to copy'
+			}, 300)
+		}}
+	>
+		{displayAnswer}
+	</button>
 </div>
 <br />
 <div
