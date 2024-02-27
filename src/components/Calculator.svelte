@@ -70,7 +70,7 @@
 			on:input={doMath}
 			on:input={(e) =>
 				(e.target.style.width =
-					e.target.value.length + 1 < 1 ? '1ch' : e.target.value.length + 1 + '1ch')}
+					e.target.value.length + 1 < 1 ? '1ch' : e.target.value.length + 1 + 'ch')}
 		/>
 		<datalist id="metals">
 			<option class="text-l" value="Gold"> </option>
