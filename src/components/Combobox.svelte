@@ -48,11 +48,12 @@
 		<Button
 			builders={[builder]}
 			variant="sentence"
+			size="sentence"
 			role="combobox"
 			aria-expanded={open}
-			class="appearance-none flex-wrap items-center justify-center border-b-4 border-green-800 bg-zinc-800 text-center text-green-50 outline-none outline-offset-1 focus:border-green-500 focus:ring-green-500 sm:w-24 md:w-32 lg:w-36"
+			class="appearance-none border-b-4 border-green-800 bg-zinc-800 px-4 text-center text-green-50 outline-none focus:border-green-500 focus:ring-green-500 md:border-b-8"
 		>
-			<div class="pb-36 text-green-50">
+			<div class="my-1 text-green-50">
 				{selectedValue}
 			</div>
 		</Button>
@@ -71,7 +72,7 @@
 						}}
 					>
 						<Check class={cn('mr-2 h-4 w-4 ', value !== c.code && 'text-transparent')} />
-						{c.name}
+						{c.symbol_native + ' ' + c.code}
 					</Command.Item>
 				{/each}
 			</Command.Group>

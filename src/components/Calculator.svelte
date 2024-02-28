@@ -46,6 +46,10 @@
 		timeZone: 'America/Los_Angeles',
 		timeZoneName: 'short',
 	}
+
+	function switchMetal() {
+		metal = metal === 'Gold' ? 'Silver' : 'Gold'
+	}
 	doMath()
 
 	const readableMetalDate = new Intl.DateTimeFormat('en-US', dateOptions).format(metalDate)
@@ -53,7 +57,7 @@
 </script>
 
 <div
-	class=" flex appearance-none flex-wrap items-center justify-center space-x-0 bg-zinc-800 px-6 text-3xl font-medium text-green-50 sm:text-4xl md:mx-auto md:text-5xl lg:text-6xl"
+	class="flex appearance-none flex-wrap items-center justify-center space-x-0 bg-zinc-800 text-3xl font-medium text-green-50 sm:text-4xl md:mx-auto md:text-5xl lg:text-6xl"
 >
 	<form>
 		<input
@@ -62,7 +66,7 @@
 			bind:value={amount}
 			on:input={handleAmountInputNumbers}
 			on:input={doMath}
-			class="w-9 appearance-none flex-wrap border-b-4 border-green-800 bg-zinc-800 text-center text-green-50 outline-none outline-offset-1 focus:border-green-500 focus:ring-green-500 sm:w-14 md:w-20 lg:w-28"
+			class="my-1 w-14 appearance-none flex-wrap items-center justify-center border-b-4 border-green-800 bg-zinc-800 text-center text-green-50 outline-none focus:border-green-500 focus:ring-green-500 sm:w-14 md:w-20 md:border-b-8 lg:w-24"
 			id="amount"
 			name="amount"
 			on:input={(e) => (e.target.style.width = e.target.value.length + 1 + 'ch')}
@@ -70,30 +74,24 @@
 
 		<label
 			for="metals"
-			class="flex-warp tooltip font-medium text-green-50"
+			class="flex-warp tooltip pr-4 font-medium text-green-50"
 			data-tip="1 Mithqál = 3.642g">Mithqál of</label
 		>
+	</form>
 
-		<input
-			autocomplete="off"
-			aria-autocomplete="none"
-			class="w-20 appearance-none border-b-4 border-green-800 bg-zinc-800 pt-1 text-center text-green-50 outline-none outline-offset-1 focus:border-green-500 focus:ring-green-500 sm:w-24 md:w-32 lg:w-36"
-			list="metals"
-			required
-			bind:value={metal}
-			on:input={doMath}
-			on:input={(e) =>
-				(e.target.style.width =
-					e.target.value.length + 1 < 1 ? '1ch' : e.target.value.length + 1 + 'ch')}
-		/>
-		<datalist id="metals">
-			<option class="text-l" value="Gold"> </option>
-			<option class="text-l" value="Silver"> </option>
-		</datalist>
-		in
-		<CurrencyCB currJson={currencies} bind:selectedValue={currency} on:listenToMe={doMath} />
+	<button
+		autocomplete="off"
+		class="appearance-none border-b-4 border-green-800 bg-zinc-800 px-4 text-center text-green-50 outline-none focus:border-green-500 focus:ring-green-500 md:border-b-8"
+		required
+		on:click={switchMetal}
+		on:click={doMath}
+	>
+		<div class="my-1">{metal}</div>
+	</button>
+	<div class="px-4">in</div>
+	<CurrencyCB currJson={currencies} bind:selectedValue={currency} on:listenToMe={doMath} />
 
-		<!-- <input
+	<!-- <input
 			autocomplete="off"
 			aria-autocomplete="none"
 			class="w-28 appearance-none border-b-4 border-green-800 bg-zinc-800 pt-1 text-center text-green-50 outline-none outline-offset-1 focus:border-green-500 focus:ring-green-500 sm:w-32 md:w-40 lg:w-48"
@@ -111,7 +109,6 @@
 			{/each}
 		</datalist>
 		is: -->
-	</form>
 </div>
 
 <br />
