@@ -3,8 +3,10 @@
 The Mithqál-Culator is a [Mithqál Calculator](https://mithqal.app/) (get it?) web application built with [Svelte](https://svelte.dev/), [Astro](https://astro.build/), and [Tailwind CSS](https://tailwindcss.com/) that allows users to calculate the value of gold and silver in various currencies in Mithqáls.
 
 ## What is a Mithqál?
-
 A Mithqál is a unit of weight usually used to measure gold and silver. One Mithqál is 3.642g. This calculation is useful for Bahá'ís who want to calculate the value of gold and silver in Mithqáls for the payment of the Huqúqu'lláh (The Right of God).
+
+
+
 
 ## Features
 - Can copy the calculated value to the clipboard by clicking on the total price.
@@ -18,6 +20,17 @@ A Mithqál is a unit of weight usually used to measure gold and silver. One Mith
 3. Click on the button to switch between gold and silver.
 4. The calculated value will be displayed in the selected currency.
 5. Click on the calculated value to copy it to the clipboard.
+
+## Goal:
+
+The goal of this project was to build something that can be of service, and also practice coding and calling/handling APIs.
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+<br><br><br><br><br><br><br>
 
 ## Development
 
@@ -45,17 +58,17 @@ The application uses an API to get the current values of gold and silver (from [
 
 ## The Tools used:
 
-- Astro
-- Svelte
-    - shadcn-svelte
-- Tailwind CSS
-    - DaisyUI
-- Bun
-- Prettier
-- Github Actions
-- Netlify
+- [Astro](https://astro.build/) (Meta Framework)
+- [Svelte](https://svelte.dev/) (JS Framework)
+    - [shadcn-svelte](https://www.shadcn-svelte.com)
+- [Tailwind CSS](https://tailwindcss.com/)
+    - [DaisyUI](https://daisyui.com/)
+- [Bun](https://bun.sh)
+- [Prettier](https://prettier.io/)
+- [Github Actions](https://github.com/features/actions)
+- [Netlify](https://www.netlify.com/)
 
 
 ## Contributing
 
-Contributions are welcome. Please make sure to update tests as appropriate.
+Contributions and feedback are welcome! Feel free to open an issue!
