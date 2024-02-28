@@ -14,12 +14,7 @@ export default defineConfig({
 			},
 		},
 	},
-	integrations: [
-		tailwind({
-			applyBaseStyles: false,
-		}),
-		svelte(),
-	],
+	integrations: [tailwind(), svelte()],
 	prefetch: {
 		prefetchAll: true,
 	},
