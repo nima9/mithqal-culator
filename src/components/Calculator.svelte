@@ -22,7 +22,6 @@
 	}
 
 	const doMath = () => {
-		console.log('MATHINGGG input event')
 		const ISOLetters = currency.slice(-3).toUpperCase().trim()
 		const symbol = currencies[ISOLetters].symbol_native
 		const metalValue = metals.metals[metal.toLowerCase().trim()]
