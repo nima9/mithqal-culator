@@ -25,6 +25,10 @@ A Mithqál is a unit of weight usually used to measure gold and silver. One Mith
 
 The goal of this project was to build something that can be of service, and also practice coding and calling/handling APIs.
 
+## Future Features:
+- Add a random Huqúqu'lláh quote under the calculation.
+- Light/Dark mode switch.
+- Language switch.
 
 
 
