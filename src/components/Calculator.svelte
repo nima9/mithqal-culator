@@ -1,6 +1,8 @@
 <script>
 	import metals from '../api/metals.json'
 	import currencies from '../api/currencies.json'
+	import CurrencyCB from './Combobox.svelte'
+
 	const mithqalWeight = 0.11708222222 //1 mithqal in troy ounces
 	let amount = '19'
 	let metal = 'Gold'
@@ -19,7 +21,8 @@
 		}
 	}
 
-	function doMath() {
+	const doMath = () => {
+		console.log('MATHINGGG input event')
 		const ISOLetters = currency.slice(-3).toUpperCase().trim()
 		const symbol = currencies[ISOLetters].symbol_native
 		const metalValue = metals.metals[metal.toLowerCase().trim()]
@@ -50,7 +53,7 @@
 </script>
 
 <div
-	class="container mx-auto flex appearance-none flex-wrap items-center justify-center space-x-0 px-6 pt-36 text-3xl font-medium text-green-50 md:container sm:text-4xl md:mx-auto md:text-5xl lg:text-6xl"
+	class=" flex appearance-none flex-wrap items-center justify-center space-x-0 bg-zinc-800 px-6 text-3xl font-medium text-green-50 sm:text-4xl md:mx-auto md:text-5xl lg:text-6xl"
 >
 	<form>
 		<input
@@ -59,21 +62,22 @@
 			bind:value={amount}
 			on:input={handleAmountInputNumbers}
 			on:input={doMath}
-			class="inline-block w-9 appearance-none flex-wrap border-b-4 pt-1 text-center text-gray-900 focus:border-green-500 focus:ring-green-500 sm:w-14 md:w-20 lg:w-28 dark:border-green-800 dark:bg-zinc-800 dark:text-green-50 dark:outline-none dark:outline-offset-1"
+			class="w-9 appearance-none flex-wrap border-b-4 border-green-800 bg-zinc-800 text-center text-green-50 outline-none outline-offset-1 focus:border-green-500 focus:ring-green-500 sm:w-14 md:w-20 lg:w-28"
 			id="amount"
 			name="amount"
 			on:input={(e) => (e.target.style.width = e.target.value.length + 1 + 'ch')}
 		/>
+
 		<label
 			for="metals"
-			class="tooltip flex-warp px-3 font-medium text-green-50"
-			data-tip="1 Mithqál = 3.642g"
-			>Mithqál of
-		</label>
+			class="flex-warp tooltip font-medium text-green-50"
+			data-tip="1 Mithqál = 3.642g">Mithqál of</label
+		>
+
 		<input
 			autocomplete="off"
 			aria-autocomplete="none"
-			class="w-20 appearance-none border-b-4 pt-1 text-center text-gray-900 focus:border-green-500 focus:ring-green-500 sm:w-24 md:w-32 lg:w-36 dark:border-green-800 dark:bg-zinc-800 dark:text-green-50 dark:outline-none dark:outline-offset-1"
+			class="w-20 appearance-none border-b-4 border-green-800 bg-zinc-800 pt-1 text-center text-green-50 outline-none outline-offset-1 focus:border-green-500 focus:ring-green-500 sm:w-24 md:w-32 lg:w-36"
 			list="metals"
 			required
 			bind:value={metal}
@@ -87,10 +91,12 @@
 			<option class="text-l" value="Silver"> </option>
 		</datalist>
 		in
-		<input
+		<CurrencyCB currJson={currencies} bind:selectedValue={currency} on:listenToMe={doMath} />
+
+		<!-- <input
 			autocomplete="off"
 			aria-autocomplete="none"
-			class="w-28 appearance-none border-b-4 pt-1 text-center text-gray-900 focus:border-green-500 focus:ring-green-500 sm:w-32 md:w-40 lg:w-48 dark:border-green-800 dark:bg-zinc-800 dark:text-green-50 dark:outline-none dark:outline-offset-1"
+			class="w-28 appearance-none border-b-4 border-green-800 bg-zinc-800 pt-1 text-center text-green-50 outline-none outline-offset-1 focus:border-green-500 focus:ring-green-500 sm:w-32 md:w-40 lg:w-48"
 			list="curr"
 			required
 			bind:value={currency}
@@ -104,7 +110,7 @@
 				<option class="text-l" value="{c.symbol_native} {c.code}"> </option>
 			{/each}
 		</datalist>
-		is:
+		is: -->
 	</form>
 </div>
 
@@ -113,7 +119,7 @@
 	class="flex flex-wrap items-center justify-center pb-9 pt-16 text-6xl text-green-300 sm:text-7xl md:text-8xl lg:text-9xl"
 >
 	<button
-		class="btn-ghost tooltip tooltip-bottom hover:bg-transparent"
+		class="tooltip tooltip-bottom hover:bg-transparent"
 		data-tip={answerDataTip}
 		on:click={() => {
 			navigator.clipboard.writeText(answer)

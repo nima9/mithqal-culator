@@ -1,4 +1,11 @@
 {
+	"compilerOptions": {
+		// ... other options
+		"paths": {
+			"$lib": ["./src/lib"],
+			"$lib/*": ["./src/lib/*"]
+		}
+	},
 	"extends": "astro/tsconfigs/base",
 	"exclude": [
 		"**/node_modules/**",
