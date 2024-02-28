@@ -15,6 +15,7 @@
 	import { cn } from '$lib/utils'
 	import { tick } from 'svelte'
 	export let currJson: { [key: string]: Currency } = {}
+	let currFullName = ''
 
 	let open = false
 	let value = ''
@@ -22,7 +23,7 @@
 		dispatch('listenToMe')
 	}
 
-	let foundCurrency
+	let foundCurrency: Currency | undefined
 	$: foundCurrency = Object.values(currJson).find(
 		(c) => c.symbol_native + ' ' + c.code + ' ' + c.name === value
 	)
@@ -30,6 +31,7 @@
 	$: selectedValue = foundCurrency
 		? `${foundCurrency.symbol_native} ${foundCurrency.code}`
 		: '$ USD'
+	$: currFullName = foundCurrency ? foundCurrency.name.toString() : 'US Dollar'
 
 	// We want to refocus the trigger button when the user selects
 	// an item from the list so users can continue navigating the
@@ -51,7 +53,8 @@
 			size="sentence"
 			role="combobox"
 			aria-expanded={open}
-			class="appearance-none border-b-4 border-green-800 bg-zinc-800 px-4 text-center text-green-50 outline-none focus:border-green-500 focus:ring-green-500 md:border-b-8"
+			class="tooltip tooltip-top appearance-none border-b-4 border-green-800 bg-zinc-800 px-4 text-center text-green-50 outline-none focus:border-green-500 focus:ring-green-500 md:border-b-8"
+			data-tip={currFullName}
 		>
 			<div class="my-1 text-green-50">
 				{selectedValue}
