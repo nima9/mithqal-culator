@@ -1,6 +1,10 @@
 # Mithqál-Culator
 
-The Mithqál-Culator is a Mithqál Calculator (get it?) web application built with Svelte and Astro that allows users to calculate the value of gold and silver in various currencies in Mithqáls.
+The Mithqál-Culator is a [Mithqál Calculator](https://mithqal.app/) (get it?) web application built with [Svelte](https://svelte.dev/), [Astro](https://astro.build/), and [Tailwind CSS](https://tailwindcss.com/) that allows users to calculate the value of gold and silver in various currencies in Mithqáls.
+
+## What is a Mithqál?
+
+A Mithqál is a unit of weight usually used to measure gold and silver. One Mithqál is 3.642g. This calculation is useful for Bahá'ís who want to calculate the value of gold and silver in Mithqáls for the payment of the Huqúqu'lláh (The Right of God).
 
 ## Features
 - Can copy the calculated value to the clipboard by clicking on the total price.
@@ -33,14 +37,6 @@ bun install
 
 # Start the development server
 bun run dev
-```
-
-
-
-To build the project, use the following command:
-
-```sh
-bun run build
 ```
 
 ## API
