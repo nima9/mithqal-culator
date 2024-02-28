@@ -1,47 +1,65 @@
-# Astro Starter Kit: Minimal
+# Mithqál-Culator
+
+The Mithqál-Culator is a Mithqál Calculator (get it?) web application built with Svelte and Astro that allows users to calculate the value of gold and silver in various currencies in Mithqáls.
+
+## Features
+- Can copy the calculated value to the clipboard by clicking on the total price.
+- Displays the date and time of when metals and currency values were last updated.
+- Metals and currencies values update once a day (by calling `runMetalsAPI.js` in bun run build:prod) and timestamp value is then updated.
+
+## Usage
+
+1. Open the [Mithqal Calculator](https://mithqal.app/) in your browser.
+2. Enter the amount of metal in Mithqal(s) in the input field.
+3. Click on the button to switch between gold and silver.
+4. The calculated value will be displayed in the selected currency.
+5. Click on the calculated value to copy it to the clipboard.
+
+## Development
+
+To run the project locally (if you want?), use the following commands:
 
 ```sh
-npm create astro@latest -- --template minimal
+# Install dependencies
+bun install
+
+# Build the project
+    bun run build
+
+    # OR: 
+    # Call the Metals API and build the project (for production) 
+
+    bun run build:prod
+
+# Start the development server
+bun run dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-## 🚀 Project Structure
+To build the project, use the following command:
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+bun run build
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## API
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+The application uses an API to get the current values of gold and silver (from [Metals.dev](https://metals.dev/)). The API is called in the [`runMetalsAPI.js`](command:_github.copilot.openRelativePath?%5B%22runMetalsAPI.js%22%5D "runMetalsAPI.js") script.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## The Tools used:
 
-## 🧞 Commands
+- Astro
+- Svelte
+    - shadcn-svelte
+- Tailwind CSS
+    - DaisyUI
+- Bun
+- Prettier
+- Github Actions
+- Netlify
 
-All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Contributing
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Contributions are welcome. Please make sure to update tests as appropriate.
