@@ -1,7 +1,10 @@
 <nav
-	class="z-50 flex flex-wrap items-center justify-between bg-zinc-800 p-4 pb-16 sm:pb-20 md:pb-28 lg:pb-36"
+	class="z-50 flex flex-wrap items-center justify-between bg-zinc-800 p-4 pb-20 sm:pb-24 md:pb-28 lg:pb-36"
 >
-	<a href="/" class="font-karla text-4xl font-medium text-green-50 sm:text-5xl md:text-6xl">
+	<a
+		href="/"
+		class="font-karla text-xl font-medium text-green-50 sm:text-4xl md:text-5xl lg:text-6xl"
+	>
 		<span class="link-underline link-underline-green">Mithqál-Culator</span>
 	</a>
 	<!-- <a

@@ -74,8 +74,13 @@
 		<label
 			for="metals"
 			class="flex-warp tooltip pr-4 font-medium text-green-50"
-			data-tip="1 Mithqál = 3.642g">Mithqál of</label
-		>
+			data-tip="1 Mithqál = 3.642g"
+			>{#if amount > 1}
+				Mithqáls
+			{:else}
+				Mithqál
+			{/if}of
+		</label>
 	</form>
 
 	<button
