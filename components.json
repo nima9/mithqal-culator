@@ -3,7 +3,7 @@
 	"style": "default",
 	"tailwind": {
 		"config": "tailwind.config.mjs",
-		"css": "base.css",
+		"css": "base.pcss",
 		"baseColor": "zinc"
 	},
 	"aliases": {
