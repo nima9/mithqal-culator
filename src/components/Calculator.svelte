@@ -72,7 +72,7 @@
 		/>
 
 		<label
-			for="metals"
+			for="amount"
 			class="flex-warp tooltip pr-4 font-medium text-green-50"
 			data-tip="1 Mithqál = 3.642g"
 			>{#if amount > 1}
@@ -85,7 +85,7 @@
 
 	<button
 		autocomplete="off"
-		class="appearance-none border-b-4 border-green-800 bg-zinc-800 px-4 text-center text-green-50 outline-none focus:border-green-500 focus:ring-green-500 md:border-b-8"
+		class="appearance-none border-b-4 border-green-800 bg-zinc-800 px-4 text-center text-green-50 outline-none active:border-green-500 active:ring-green-500 md:border-b-8"
 		required
 		on:click={switchMetal}
 		on:click={doMath}
@@ -139,12 +139,12 @@
 </div>
 
 <div
-	class="flex flex-wrap items-center justify-end px-7 pb-1 pt-24 text-gray-500 sm:mr-48 md:mr-24 lg:mr-12"
+	class="flex flex-wrap items-center justify-end px-7 pb-1 pt-24 text-gray-400 sm:mr-48 md:mr-24 lg:mr-12"
 >
-	Metal values as of: {readableMetalDate}
+	Metal rates as of: {readableMetalDate}
 </div>
 <div
-	class="flex flex-wrap items-center justify-end px-7 py-1 text-gray-500 sm:mr-48 md:mr-24 lg:mr-12"
+	class="flex flex-wrap items-center justify-end px-7 py-1 text-gray-400 sm:mr-48 md:mr-24 lg:mr-12"
 >
-	Currency values as of: {readableCurrDate}
+	Currency rates as of: {readableCurrDate}
 </div>
