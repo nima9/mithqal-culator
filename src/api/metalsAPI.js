@@ -25,6 +25,11 @@ export default async () => {
 		},
 	})
 
+	if (!response.ok) {
+		console.error('To Nima: API request failed with status:', response.status)
+		return
+	}
+
 	const result = await response.json()
 	const path = Bun.file('src/api/metals.json')
 	Bun.write(path, JSON.stringify(result))
