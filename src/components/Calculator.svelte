@@ -4,16 +4,16 @@
 	import CurrencyCB from './Combobox.svelte'
 
 	const mithqalWeight = 0.11708222222 //1 mithqal in troy ounces
-	let amount = '19'
-	let metal = 'Gold'
-	let currency = '$ USD'
-	let answer = 0
-	let displayAnswer = ''
-	let metalDate = new Date(metals.timestamps.metal.toString())
-	let currDate = new Date(metals.timestamps.currency.toString())
+	let amount = '19' //number of mithqals
+	let metal = 'Gold' //type of metal (Gold or Silver, default value is Gold)
+	let currency = '$ USD' //currency symbol and ISO code (default value is $ USD)
+	let answer = 0 //result of the calculation (in float)
+	let displayAnswer = '' //the string to display the result (with currency symbol)
+	let metalDate = new Date(metals.timestamps.metal.toString()) //date of the metal rates
+	let currDate = new Date(metals.timestamps.currency.toString()) //date of the currency rates
 	$: answerDataTip = 'Click to copy'
 
-	function handleAmountInputNumbers(event) {
+	function sanatizeInupt(event) {
 		const value = event.target.value
 		const validValue = value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')
 		if (value !== validValue) {
@@ -63,7 +63,7 @@
 			autocomplete="off"
 			type="text"
 			bind:value={amount}
-			on:input={handleAmountInputNumbers}
+			on:input={sanatizeInupt}
 			on:input={doMath}
 			class="my-1 w-14 appearance-none flex-wrap items-center justify-center border-b-4 border-green-800 bg-zinc-800 text-center text-green-50 outline-none focus:border-green-500 focus:ring-green-500 sm:w-14 md:w-20 md:border-b-8 lg:w-24"
 			id="amount"
