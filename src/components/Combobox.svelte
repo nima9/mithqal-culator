@@ -64,9 +64,9 @@
 		</Button>
 	</Popover.Trigger>
 	<Popover.Content class="container w-[200px] p-0">
-		<ScrollArea class="h-72 w-48 rounded-md border">
-			<Command.Root>
-				<Command.Input placeholder="Search currency..." />
+		<Command.Root>
+			<Command.Input placeholder="Search currency..." />
+			<ScrollArea class="h-72 w-48 rounded-md border">
 				<Command.Empty>No currencies found.</Command.Empty>
 				<Command.Group>
 					{#each Object.values(currJson) as c}
@@ -87,7 +87,7 @@
 						</Command.Item>
 					{/each}
 				</Command.Group>
-			</Command.Root>
-		</ScrollArea>
+			</ScrollArea>
+		</Command.Root>
 	</Popover.Content>
 </Popover.Root>
