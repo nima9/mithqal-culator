@@ -12,6 +12,7 @@
 	import * as Command from '$lib/components/ui/command'
 	import * as Popover from '$lib/components/ui/popover'
 	import { Button } from '$lib/components/ui/button'
+	import { ScrollArea } from '$lib/components/ui/scroll-area/index.js'
 	import { cn } from '$lib/utils'
 	import { tick } from 'svelte'
 	export let currJson: { [key: string]: Currency } = {}
@@ -63,28 +64,30 @@
 		</Button>
 	</Popover.Trigger>
 	<Popover.Content class="container w-[200px] p-0">
-		<Command.Root>
-			<Command.Input placeholder="Search currency..." />
-			<Command.Empty>No currencies found.</Command.Empty>
-			<Command.Group>
-				{#each Object.values(currJson) as c}
-					<Command.Item
-						value={c.symbol_native + ' ' + c.code + ' ' + c.name}
-						onSelect={(currentValue) => {
-							value = currentValue
-							closeAndFocusTrigger(ids.trigger)
-						}}
-					>
-						<Check
-							class={cn(
-								'mr-2 h-4 w-4 ',
-								value !== c.symbol_native + ' ' + c.code + ' ' + c.name && 'text-transparent'
-							)}
-						/>
-						{c.symbol_native + ' ' + c.code}
-					</Command.Item>
-				{/each}
-			</Command.Group>
-		</Command.Root>
+		<ScrollArea class="h-72 w-48 rounded-md border">
+			<Command.Root>
+				<Command.Input placeholder="Search currency..." />
+				<Command.Empty>No currencies found.</Command.Empty>
+				<Command.Group>
+					{#each Object.values(currJson) as c}
+						<Command.Item
+							value={c.symbol_native + ' ' + c.code + ' ' + c.name}
+							onSelect={(currentValue) => {
+								value = currentValue
+								closeAndFocusTrigger(ids.trigger)
+							}}
+						>
+							<Check
+								class={cn(
+									'mr-2 h-4 w-4 ',
+									value !== c.symbol_native + ' ' + c.code + ' ' + c.name && 'text-transparent'
+								)}
+							/>
+							{c.symbol_native + ' ' + c.code}
+						</Command.Item>
+					{/each}
+				</Command.Group>
+			</Command.Root>
+		</ScrollArea>
 	</Popover.Content>
 </Popover.Root>
