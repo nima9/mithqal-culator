@@ -1,12 +1,10 @@
 import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
-import netlify from '@astrojs/netlify'
 import { resolve } from 'path'
 import svelte from '@astrojs/svelte'
 import sitemap from '@astrojs/sitemap'
-
 import partytown from '@astrojs/partytown'
-import { config } from 'process'
+import netlify from '@astrojs/netlify/functions'
 
 // https://astro.build/config
 export default defineConfig({
@@ -32,5 +30,6 @@ export default defineConfig({
 	prefetch: {
 		prefetchAll: true,
 	},
-	adapter: netlify(),
+	output: 'server',
+	adapter: netlify({ edgeMiddleware: true }),
 })

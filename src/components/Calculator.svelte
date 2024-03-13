@@ -3,6 +3,10 @@
 	import currencies from '../api/currencies.json'
 	import CurrencyCB from './Combobox.svelte'
 
+	const {
+		geo: { city },
+	} = Astro.locals.netlify.context
+
 	const mithqalWeight = 0.11708222222 //1 mithqal in troy ounces
 	let amount = '19' //number of mithqals
 	let metal = 'Gold' //type of metal (Gold or Silver, default value is Gold)
@@ -53,8 +57,11 @@
 
 	const readableMetalDate = new Intl.DateTimeFormat('en-US', dateOptions).format(metalDate)
 	const readableCurrDate = new Intl.DateTimeFormat('en-US', dateOptions).format(currDate)
+
+	console.log('city!!!: ', city)
 </script>
 
+<div>{city}</div>
 <div
 	class="flex appearance-none flex-wrap items-center justify-center space-x-0 bg-zinc-800 text-3xl font-medium text-green-50 sm:text-4xl md:mx-auto md:text-5xl lg:text-6xl"
 >
