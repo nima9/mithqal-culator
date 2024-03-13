@@ -1,12 +1,12 @@
 <script>
-	import { Command as CommandPrimitive } from "cmdk-sv";
-	import { cn } from "$lib/utils";
-	let className = undefined;
-	export { className as class };
+	import { Command as CommandPrimitive } from 'cmdk-sv'
+	import { cn } from '$lib/utils'
+	let className = undefined
+	export { className as class }
 </script>
 
 <CommandPrimitive.List
-	class={cn("max-h-[300px] overflow-y-auto overflow-x-hidden", className)}
+	class={cn('max-h-[300px] overflow-y-auto overflow-x-hidden', className)}
 	{...$$restProps}
 >
 	<slot />

@@ -1,24 +1,24 @@
 <script>
-	import { ScrollArea as ScrollAreaPrimitive } from "bits-ui";
-	import { cn } from "$lib/utils.js";
-	import { Scrollbar } from "./index.js";
-	let className = undefined;
-	export { className as class };
-	export let orientation = "vertical";
-	export let scrollbarXClasses = "";
-	export let scrollbarYClasses = "";
+	import { ScrollArea as ScrollAreaPrimitive } from 'bits-ui'
+	import { cn } from '$lib/utils.js'
+	import { Scrollbar } from './index.js'
+	let className = undefined
+	export { className as class }
+	export let orientation = 'vertical'
+	export let scrollbarXClasses = ''
+	export let scrollbarYClasses = ''
 </script>
 
-<ScrollAreaPrimitive.Root {...$$restProps} class={cn("relative overflow-hidden", className)}>
+<ScrollAreaPrimitive.Root {...$$restProps} class={cn('relative overflow-hidden', className)}>
 	<ScrollAreaPrimitive.Viewport class="h-full w-full rounded-[inherit]">
 		<ScrollAreaPrimitive.Content>
 			<slot />
 		</ScrollAreaPrimitive.Content>
 	</ScrollAreaPrimitive.Viewport>
-	{#if orientation === "vertical" || orientation === "both"}
+	{#if orientation === 'vertical' || orientation === 'both'}
 		<Scrollbar orientation="vertical" class={scrollbarYClasses} />
 	{/if}
-	{#if orientation === "horizontal" || orientation === "both"}
+	{#if orientation === 'horizontal' || orientation === 'both'}
 		<Scrollbar orientation="horizontal" class={scrollbarXClasses} />
 	{/if}
 	<ScrollAreaPrimitive.Corner />

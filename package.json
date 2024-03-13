@@ -14,7 +14,7 @@
     "delMetalsLock": "bun deleteMetalsLock.js"
   },
   "dependencies": {
-    "@astrojs/netlify": "5.1.3",
+    "@astrojs/netlify": "^5.1.3",
     "@astrojs/partytown": "^2.0.4",
     "@astrojs/sitemap": "^3.1.1",
     "@astrojs/svelte": "5.2.0",

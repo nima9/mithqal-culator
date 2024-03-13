@@ -31,8 +31,8 @@
 	export let selectedValue
 	$: selectedValue = foundCurrency
 		? `${foundCurrency.symbol_native} ${foundCurrency.code}`
-		: '$ USD'
-	$: currFullName = foundCurrency ? foundCurrency.name.toString() : 'US Dollar'
+		: selectedValue || ''
+	$: currFullName = foundCurrency ? foundCurrency.name.toString() : selectedValue || ''
 
 	// We want to refocus the trigger button when the user selects
 	// an item from the list so users can continue navigating the

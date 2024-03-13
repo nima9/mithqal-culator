@@ -1,8 +1,8 @@
 <script>
-	import Command from "./command.svelte";
-	import * as Dialog from "$lib/components/ui/dialog";
-	export let open = false;
-	export let value = undefined;
+	import Command from './command.svelte'
+	import * as Dialog from '$lib/components/ui/dialog'
+	export let open = false
+	export let value = undefined
 </script>
 
 <Dialog.Root bind:open {...$$restProps}>
