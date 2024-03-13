@@ -4,7 +4,7 @@ import { resolve } from 'path'
 import svelte from '@astrojs/svelte'
 import sitemap from '@astrojs/sitemap'
 import partytown from '@astrojs/partytown'
-import netlify from '@astrojs/netlify/functions'
+import netlify from '@astrojs/netlify'
 
 // https://astro.build/config
 export default defineConfig({
