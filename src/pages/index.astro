@@ -3,7 +3,24 @@ import '/base.pcss'
 import HeadTags from '../components/HeadTags.astro'
 import Header from '../components/Header.svelte'
 import Calculator from '../components/Calculator.svelte'
+import { countryToCurrency } from '../functions/countryToCurrency.js'
+
 //https://metals.dev
+
+let usersCountry = ''
+const ip = Astro.clientAddress
+await fetch('https://api.country.is/' + ip)
+	.then((response) => response.json())
+	.then((data) => (usersCountry = data.country))
+	.catch((error) => console.log('error', error))
+
+let defaultCurrency = ''
+
+if (!usersCountry) {
+	defaultCurrency = '$ USD'
+} else {
+	defaultCurrency = countryToCurrency(usersCountry).toString().trim().toUpperCase()
+}
 ---
 
 <html lang="en" class="bg-zinc-800 font-karla">
@@ -11,6 +28,7 @@ import Calculator from '../components/Calculator.svelte'
 	<Header />
 
 	<body>
-		<Calculator client:load />
+		<Calculator client:load selectedCurrency={defaultCurrency} />
+		<div class="px-48">{usersCountry}</div>
 	</body>
 </html>
