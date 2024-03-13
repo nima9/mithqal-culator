@@ -3,8 +3,8 @@
 		// ... other options
 		"paths": {
 			"$lib": ["./src/lib"],
-			"$lib/*": ["./src/lib/*"]
-		}
+			"$lib/*": ["./src/lib/*"],
+		},
 	},
 	"extends": "astro/tsconfigs/base",
 	"exclude": [
@@ -15,6 +15,6 @@
 		"**/.svelte/**",
 		"**/.netlify/**",
 		"**/api/**",
-		"src/unused/**"
-	]
+		"src/unused/**",
+	],
 }
