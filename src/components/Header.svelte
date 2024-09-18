@@ -5,7 +5,7 @@
 		href="/"
 		class="font-karla text-xl font-medium text-green-50 sm:text-4xl md:text-5xl lg:text-6xl"
 	>
-		<span class="link-underline link-underline-green">Mithqál-Culator</span>
+		<span class="link-underline link-underline-green">Mithqál Calculator</span>
 	</a>
 	<!-- <a
 		href="/about"
